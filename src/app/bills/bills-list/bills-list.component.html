@@ -1,0 +1,4 @@
+<app-bill-form></app-bill-form>
+<div *ngFor="let bill of bills | async">
+  {{bill.title}} | {{bill.value}} | {{bill.active}}
+</div>
