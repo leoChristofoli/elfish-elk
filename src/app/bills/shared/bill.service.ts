@@ -12,15 +12,36 @@ export class BillService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getBillsList(query = {}){
+  getBillsList(query = {}) {
     this.bills = this.db.list(this.basePath, { query: query });
     return this.bills;
   }
 
   createBill(bill: Bill): void  {
+    console.log(bill);
+    let date = new Date();
+    bill.when_created = date;
+    console.error(bill);
     this.bills.push(bill)
       .catch(error => this.handleError(error));
   }
+
+  updateItem(key: string, value: any): void {
+    this.bills.update(key, value)
+      .catch(error => this.handleError(error));
+  }
+
+   // Deletes a single item
+  deleteItem(key: string): void {
+    this.bills.remove(key)
+      .catch(error => this.handleError(error));
+  }
+
+  // Deletes the entire list of items
+  deleteAll(): void {
+    this.bills.remove()
+      .catch(error => this.handleError(error));
+    }
 
   // Default error handling for all actions
   private handleError(error) {

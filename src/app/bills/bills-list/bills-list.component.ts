@@ -24,4 +24,8 @@ export class BillsListComponent implements OnInit {
     this.bills = this.billSvc.getBillsList({});
   }
 
+  deleteAll() {
+    this.billSvc.deleteAll();
+  }
+
 }

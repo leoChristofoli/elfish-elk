@@ -18,7 +18,7 @@ export class BillFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  createBill(){
+  createBill() {
     this.billSvc.createBill(this.bill);
     this.bill = new Bill();
   }

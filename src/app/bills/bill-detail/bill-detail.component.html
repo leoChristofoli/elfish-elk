@@ -1,3 +1,15 @@
-<p>
-  bill-detail works!
-</p>
+<md-card class="example-card">
+    <md-card-header>
+      <md-card-title>{{bill.title}}</md-card-title>
+      <md-card-subtitle>{{bill.$key}}</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+      <p>
+          {{bill.title}} | {{bill.value}} | {{bill.active}} | {{bill.when_created | date: 'medium' }} | {{bill.category}}
+      </p>
+    </md-card-content>
+    <md-card-actions>
+      <button md-button (click)='deleteBill()' >Delete</button>
+      <button md-button>SHARE</button>
+    </md-card-actions>
+  </md-card>

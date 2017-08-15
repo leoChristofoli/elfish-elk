@@ -1,4 +1,8 @@
+
 <app-bill-form></app-bill-form>
+
 <div *ngFor="let bill of bills | async">
-  {{bill.title}} | {{bill.value}} | {{bill.active}}
-</div>
+    <app-bill-detail [bill]='bill' ></app-bill-detail>
+  </div>
+
+  <button md-raised-button (click)='deleteAll()' >Delete All</button>

@@ -12,9 +12,13 @@ export class BillDetailComponent implements OnInit {
 
   @Input() bill: Bill;
 
-  constructor() { }
+  constructor(private billSvc: BillService) { }
 
   ngOnInit() {
+  }
+
+  deleteBill() {
+    this.billSvc.deleteItem(this.bill.$key);
   }
 
 }
